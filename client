@@ -1,0 +1,16 @@
+import socket
+
+def main():
+    host = "192.168.142.132"
+    port = 8888
+
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect((host, port))
+
+    quote = client_socket.recv(1024).decode('utf-8')
+    print(f"Quote of the Day: {quote}")
+
+    client_socket.close()
+
+if __name__ == "__main__":
+    main()
